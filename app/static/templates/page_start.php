@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/app/static/assets/toxic_frog_favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/app/static/common.css" />
+    <link rel="stylesheet" href="/app/static/stylesheet.css" />
+    <?= "<title>FrogInfo - ".($title ?? 'NONE')."</title>" ?>
+  </head>
+  <body>
+    <div class="blur_body">
+      <div class="content_body">
+        <header class="navbar">
+          <div class="navbar_sprite"></div>
+          <h1>FrogInfo</h1>
+          <nav>
+            <a href="/" class="button">Home</a>
+            <a href="/content/gallery" class="button">Gallery</a>
+          </nav>
+        </header>
+        <?= "<div class='".($content ?? "")."'>" ?>

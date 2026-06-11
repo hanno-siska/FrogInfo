@@ -1,0 +1,138 @@
+/* Colors */
+:root {
+  --primary-color: rgb(49, 124, 62);
+  --button-hover-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Setup */
+html,
+body {
+  font-family: "Inter", sans-serif;
+  height: 100%;
+  min-height: 100vh;
+  font-size: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Unified Layout */
+body {
+  background-image: url("/app/static/assets/frog_background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.blur_body {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(0.25rem);
+  padding: 1rem 1rem 1rem 1rem;
+}
+
+.content_body {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 3.5rem 1fr 2rem;
+  width: 100%;
+
+  max-width: 800px;
+  box-shadow: 0.5rem 0.5rem 0.5rem 0.25rem rgba(0, 0, 0, 0.418);
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.5rem;
+}
+
+/* Navbar & Navbar Elements */
+.navbar {
+  display: flex;
+
+  color: white;
+  align-items: end;
+  padding: 0.25rem 1rem 0.25rem 1rem;
+  background-color: var(--primary-color);
+  border-radius: 0.25rem 0.25rem 0rem 0rem;
+}
+
+.navbar h1 {
+  align-self: center;
+  margin-right: 2.5rem;
+}
+.navbar nav {
+  display: flex;
+  align-items: end;
+  gap: 0.25rem;
+}
+
+.navbar .button {
+  color: white;
+  text-decoration: none;
+
+  font-size: 1.15rem;
+  border-radius: 0.15rem;
+  padding: 0.3rem 0.8rem 0.3rem 0.8rem;
+  transition:
+    background-color 0.15s,
+    transform 0.1s;
+}
+
+.navbar .button:hover {
+  background-color: var(--button-hover-color);
+}
+
+.navbar .button:active {
+  transform: translateY(0.1rem);
+}
+
+.navbar_sprite {
+  width: 48px;
+  height: 48px;
+
+  background-image: url("/app/static/assets/toxic_frog_spritesheet.png");
+  background-repeat: no-repeat;
+
+  image-rendering: pixelated;
+  animation: NavbarSprite 1.25s steps(7) infinite;
+  transform: scale(2);
+}
+
+@keyframes NavbarSprite {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -336px 0;
+  }
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+
+  color: white;
+  padding: 0.25rem 1rem 0.25rem 1rem;
+  background-color: var(--primary-color);
+  border-radius: 0rem 0rem 0.25rem 0.25rem;
+}
+
+/* Media Queries */
+@media (max-width: 400px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar h1 {
+    margin: 0;
+  }
+
+  .content_body {
+    grid-template-rows: 4.5rem 1fr 2rem;
+  }
+}
