@@ -1,1 +1,40 @@
+/* Imports */
+@import url("/app/static/common.css");
+@import url("/app/static/reusables.css");
+
 /*== Home Page ==*/
+.home {
+  padding: 0.75rem;
+}
+
+.home .search_form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.home .featured_cards {
+  display: grid;
+  gap: 1.5rem;
+  justify-content: center;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.home .frogstistics {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-rows: 1fr;
+  grid-template-columns: 0.30fr 1fr;
+}
+
+/* Media Queries */
+@media (max-width: 550px) {
+  .home .featured_cards {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .home .frogstistics {
+    grid-template-columns: 1fr 1fr;
+  }
+}

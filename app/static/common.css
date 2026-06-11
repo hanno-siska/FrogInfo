@@ -1,12 +1,16 @@
 /* Colors */
 :root {
+  --text-color: rgb(36, 34, 34);
+
   --primary-color: rgb(49, 124, 62);
+  --secondary-color: rgb(128, 128, 128);
   --button-hover-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Setup */
 html,
 body {
+  color: var(--text-color);
   font-family: "Inter", sans-serif;
   height: 100%;
   min-height: 100vh;
@@ -19,9 +23,13 @@ body {
   box-sizing: border-box;
 }
 
+h2 {
+  margin-bottom: 0.2rem;
+}
+
 /* Unified Layout */
 body {
-  background-image: url("/app/static/assets/frog_background.jpg");
+  background-image: url("/app/static/assets/frog_background.webp");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -68,7 +76,7 @@ body {
   gap: 0.25rem;
 }
 
-.navbar .button {
+.navbar .link_button {
   color: white;
   text-decoration: none;
 
@@ -80,11 +88,11 @@ body {
     transform 0.1s;
 }
 
-.navbar .button:hover {
+.navbar .link_button:hover {
   background-color: var(--button-hover-color);
 }
 
-.navbar .button:active {
+.navbar .link_button:active {
   transform: translateY(0.1rem);
 }
 
@@ -122,7 +130,7 @@ body {
 }
 
 /* Media Queries */
-@media (max-width: 400px) {
+@media (max-width: 540px) {
   .navbar {
     flex-direction: column;
     align-items: center;
