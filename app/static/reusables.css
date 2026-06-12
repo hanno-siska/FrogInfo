@@ -10,6 +10,8 @@
 .button {
   color: white;
   border-radius: 0.15rem;
+  text-decoration: none;
+  text-align: center;
   border: 0.1rem solid var(--primary-color);
   padding: 0.3rem 0.8rem 0.3rem 0.8rem;
   background-color: var(--primary-color);
@@ -39,8 +41,14 @@
 
 /* Card */
 .card {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
   overflow: hidden;
   border-radius: 0.15rem;
+  outline: 0.1rem solid transparent;
+  transition: transform 0.15s, outline 0.15s;
   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
 }
 
@@ -50,10 +58,28 @@
 }
 
 .card .card_content {
+  flex: 1;
   display: flex;
   flex-direction: column;
 
   gap: 0.5rem;
   text-wrap-style: pretty;
   padding: 0.3rem 0.8rem 0.3rem 0.8rem;
+}
+
+.card .button {
+  margin-top: auto;
+}
+
+.card .image_button {
+  border: 0;
+  background-color: transparent;
+}
+
+.card:has(.image_button:hover) {
+  transform: translateY(-0.1rem);
+}
+
+.card:has(.image_button:active) {
+  outline: 0.1rem solid var(--primary-color);
 }

@@ -12,7 +12,7 @@ include __DIR__."/../static/templates/page_start.php";
 
 <section>
     <p>Welcome to FrogInfo, a small website of curated frog related information.</p>
-    <p>Fun frog fact of the day: <span style="color: var(--primary-color);">(insert frog fact)</span></p>
+    <p>Fun fact: <span style="color: var(--primary-color);">Wood frogs can freeze solid in winter and survive, then “wake up” when they thaw in spring.</span></p>
     <br>
     <h2>Search</h2>
     <form class="search_form" action="" method="get">
@@ -30,10 +30,13 @@ include __DIR__."/../static/templates/page_start.php";
 <section>
     <h2>Featured Frogs</h2>
     <div class="featured_cards">
-        <?php $frogs = $datastore->get_frogs()?>
+        <?php 
+            $frogs = $datastore->get_frogs();
+            shuffle($frogs);
+        ?>
         <?php for($i = 0; $i !== 4; $i++): ?>
             <div class='card'>
-                <img src='/app/static/assets/broken_image.png' alt='<?= $frogs[$i]["image_description"] ?? "An error occured while getting the image description" ?>' class='card_image'>
+                <img src='<?= $frogs[$i]["image"] ?? "/app/static/assets/broken_image.png" ?>' alt='<?= $frogs[$i]["image_description"] ?? "An error occured while getting the image description" ?>' class='card_image'>
                 <div class="card_content">
                     <h3><?= $frogs[$i]["title"] ?? "Err" ?></h3>
                     <p><?= $frogs[$i]["content"] ?? "Err" ?></p>
@@ -44,20 +47,25 @@ include __DIR__."/../static/templates/page_start.php";
     </div>
 </section>
 <hr class="separator">
+<h2>A Cool Video</h2>
+<iframe src="https://www.youtube.com/embed/4z8kJFcmhKc" title="Frog Song: The World of Amphibians - Full Documentary" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+
+<hr class="separator">
 <section>
     <h2>Frogstistics</h2>
     <div class="frogstistics">
         <div class='card'>
-            <img src='/app/static/assets/broken_image.png' alt='' class='card_image'>
+            <?php $popular_frog = $datastore->get_popular_frog()?>
+            <img src='<?= $popular_frog["image"] ?? "/app/static/assets/broken_image.png" ?>' alt='<?= $popular_frog["image_description"] ?? "Failed to load image description" ?>' class='card_image'>
             <div class="card_content">
-                <h3>Frog Name</h3>
-                <p>A tiny description goes here, about this frog.</p>
-                <a href="/content/articles" class="button">View</a>
+                <h3><?= $popular_frog["title"] ?? "ERR" ?></h3>
+                <p><?= $popular_frog["description"] ?? "ERR" ?></p>
+                <a href="/content/article?exec_action=view&id=<?= $popular_frog["id"] ?? "" ?>" class="button">View</a>
             </div>
         </div>
         <div>
             <p>Total frogs in the system: <?= $datastore->get_frog_count() ?></p>
-            <p>Last updated: 11/06/2026</p>
+            <p>Last updated: 12/06/2026</p> 
         </div>
     </div>
 </section>

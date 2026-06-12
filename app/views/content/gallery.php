@@ -1,7 +1,11 @@
 <?php
-$title = "Articles";
-$content = "articles";
-$data = $data ?? [];
+require_once "./app/src/datastore.php";
+use App\DataStore;
+
+$title = "Gallery";
+$content = "gallery";
+
+$datastore = new DataStore();
 include __DIR__."/../../static/templates/page_start.php";
 ?>
 
@@ -10,7 +14,19 @@ include __DIR__."/../../static/templates/page_start.php";
 </section>
 
 <hr class="separator">
-<p>Whoops, there's nothing here yet</p>
+<section class="gallery_images">
+    <?php foreach($datastore->get_images() as $frog): ?>
+        <form action="/content/article" method="get" class="card">
+            <input type="hidden" name="exec_action" value="view">
+            <input type="hidden" name="id" value="<?= $frog["id"] ?? "" ?>">
+            <button type="submit" class="image_button">
+                <img src="<?= $frog["image"] ?? "/app/static/assets/broken_image.png" ?>" alt="<?= $frog["image_description"] ?? "Image description failed to load" ?>" class="card_image">
+            </button>
+        </form>
+    <?php endforeach;?>
+</section>
+<hr class="separator">
+<p>Seems you've reached the end.</p>
 
 <?php
 include __DIR__."/../../static/templates/page_end.php";

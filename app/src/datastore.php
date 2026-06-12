@@ -5,6 +5,11 @@ namespace App;
 
 // Requires
 use PDO;
+use PDOException;
+use WebRuntime\Core\Response;
+use WebRuntime\Core\RouteDisplay;
+use WebRuntime\WebRuntime;
+use WebRuntime\WebRuntimeSession;
 
 final class DataStore {
     private const DATABASE_LOCATION = __DIR__."/../../data/frogbase.db";
@@ -21,12 +26,20 @@ final class DataStore {
         }
     }
 
-    public function get_frog_count(): int {
-        $stmt = $this->pdo->query("SELECT COUNT(*) FROM frog_articles");
-        return $stmt->fetch(PDO::FETCH_COLUMN) ?? 0;
+    public function get_popular_frog(): array {
+        $stmt = $this->pdo->query("SELECT id, title, description, image_description, image FROM frog_articles ORDER BY viewed_count ASC");
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function get_frogs_by_search(string $query): array {}
+    public function get_frog_count(): int {
+        $stmt = $this->pdo->query("SELECT COUNT(*) FROM frog_articles");
+        return (int) ($stmt->fetch(PDO::FETCH_COLUMN) ?? 0);
+    }
+
+    public function get_frogs_by_search(string $query): array {
+        $stmt = $this->pdo->prepare("SELECT * FROM frog_articles WHERE title LIKE ?");
+        $stmt->execute(["%$query%"]);
+    }
 
     public function get_frog_by_id(int $id): array {}
 
@@ -36,8 +49,15 @@ final class DataStore {
     }
 
     public function get_images(): array {
-        $stmt = $this->pdo->query("SELECT id, image FROM frog_articles");
-        return $stmt->fetchAll(PDO::FETCH_ASSOC) ?? [];
+        try {
+            $stmt = $this->pdo->query("SELECT id, image, image_description FROM frog_articles");
+            return $stmt->fetchAll(PDO::FETCH_ASSOC) ?? [];
+        } catch(PDOException $e) {
+            WebRuntimeSession::flash_set("msg", "Error 500, Failed to load images, fatal database failure");
+            $disp = new RouteDisplay();
+            $disp->redirect(new Response(302, "/error"));
+            return [];
+        }
     }
 }
 

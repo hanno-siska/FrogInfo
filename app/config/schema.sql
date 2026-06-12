@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS frog_articles (
     description TEXT NOT NULL,
     viewed_count INTEGER DEFAULT 0,
     image_description TEXT NULL,
-    image BLOB NULL
+    image TEXT NULL
 );
 
 CREATE INDEX IF NOT EXISTS idx_frog_articles_by_title

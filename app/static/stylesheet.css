@@ -3,8 +3,14 @@
 @import url("/app/static/reusables.css");
 
 /*== Shared == */
-.home, .articles {
+.home, .articles, .error, .gallery {
   padding: 0.75rem;
+}
+
+/*== Error Page */
+.error {
+  display: flex;
+  flex-direction: column;
 }
 
 /*== Home Page ==*/
@@ -16,6 +22,7 @@
 .home .featured_cards {
   display: grid;
   gap: 1.5rem;
+  align-items: stretch;
   justify-content: center;
   grid-template-rows: 1fr;
   grid-template-columns: repeat(4, 1fr);
@@ -28,7 +35,15 @@
   grid-template-columns: 0.30fr 1fr;
 }
 
-/*== Articles Page ==*/
+/*== Gallery Page ==*/
+.gallery .gallery_images {
+  display: grid;
+  gap: 1.5rem;
+  align-items: stretch;
+  justify-content: center;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(4, 1fr);
+}
 
 /*== Media Queries ==*/
 @media (max-width: 550px) {
@@ -39,5 +54,10 @@
 
   .home .frogstistics {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .gallery .gallery_images {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
