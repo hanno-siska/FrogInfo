@@ -26,9 +26,10 @@ final class DataStore {
         }
     }
 
-    public function get_popular_frog(): array {
-        $stmt = $this->pdo->query("SELECT id, title, description, image_description, image FROM frog_articles ORDER BY viewed_count ASC");
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+    public function get_popular_frog(bool $get_one = true): array {
+        $stmt = $this->pdo->query("SELECT id, title, description, image_description, image, viewed_count FROM frog_articles ORDER BY viewed_count ASC LIMIT 4");
+        if ($get_one) {return $stmt->fetch(PDO::FETCH_ASSOC);}
+        else {return $stmt->fetchAll(PDO::FETCH_ASSOC);}
     }
 
     public function get_frog_count(): int {
