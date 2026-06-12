@@ -2,11 +2,12 @@
 @import url("/app/static/common.css");
 @import url("/app/static/reusables.css");
 
-/*== Home Page ==*/
-.home {
+/*== Shared == */
+.home, .articles {
   padding: 0.75rem;
 }
 
+/*== Home Page ==*/
 .home .search_form {
   display: flex;
   gap: 0.5rem;
@@ -27,7 +28,9 @@
   grid-template-columns: 0.30fr 1fr;
 }
 
-/* Media Queries */
+/*== Articles Page ==*/
+
+/*== Media Queries ==*/
 @media (max-width: 550px) {
   .home .featured_cards {
     grid-template-rows: repeat(2, 1fr);

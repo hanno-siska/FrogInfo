@@ -79,10 +79,15 @@ final class RouteDisplay {
         }
 
         if (is_null($response->response_path) or !file_exists($response->response_path)) {
-            http_response_code(404);
-            echo("Error 404, page not found");
-            Debug::in(DebugLevel::DEBUG, "RouteDisplay: handle, path: '". ($response->response_path ?? 'NULL') ."', not found");
-            exit;
+            if (!file_exists(__DIR__."/../../../../app/views/error.php")) { //TEMP CHANGE FOR THIS PROJECT ONLY!, QOL UPD FIX IN FUTURE CUSTOM ERROR PAGES!
+                http_response_code(404);
+                echo("Error 404, page not found");
+                Debug::in(DebugLevel::DEBUG, "RouteDisplay: handle, path: '". ($response->response_path ?? 'NULL') ."', not found");
+                exit;
+            }
+
+            SessionManagement::flash_set("msg", "Error 404, page not found");
+            $this->redirect(new Response(302, "/error"));
         }
 
         $data = $response->data;
