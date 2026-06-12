@@ -21,9 +21,25 @@ include __DIR__."/../static/templates/page_start.php";
         <input class="button" type="submit" value="Search">
     </form>
 </section>
-<?php if ($data ?? [] && !$data["found_result"]): ?>
+<?php if ($data && !$data["found_result"]): ?>
     <hr class="separator">
     <p>No results found :(</p>
+<?php endif; ?>
+<?php if ($data && $data["found_result"]): ?>
+    <hr class="separator">
+    <h2>Search Results</h2>
+    <section class="featured_cards">
+        <?php foreach($data["result"] as $frog): ?>
+            <div class='card'>
+                <img src='<?= $frog["image"] ?? "/app/static/assets/broken_image.png" ?>' alt='<?= $frog["image_description"] ?? "Failed to load image description" ?>' class='card_image'>
+                <div class="card_content">
+                    <h3><?= $frog["title"] ?? "ERR" ?></h3>
+                    <p><?= $frog["description"] ?? "ERR" ?></p>
+                    <a href="/content/article?exec_action=view&id=<?= $frog["id"] ?? "" ?>" class="button">View</a>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </section>
 <?php endif; ?>
 
 <hr class="separator">

@@ -38,8 +38,10 @@ final class DataStore {
     }
 
     public function get_frogs_by_search(string $query): array {
-        $stmt = $this->pdo->prepare("SELECT * FROM frog_articles WHERE title LIKE ?");
+        $stmt = $this->pdo->prepare("SELECT * FROM frog_articles WHERE title LIKE ? LIMIT 10");
         $stmt->execute(["%$query%"]);
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function get_frog_by_id(int $id): array {}

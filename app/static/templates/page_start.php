@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="/app/static/assets/toxic_frog_favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="/app/static/stylesheet.css" />
-    <?= "<title>FrogInfo - ".($title ?? 'NONE')."</title>" ?>
+    <?= "<title>FrogInfo - ".($title ?? 'NONE')."</title>\n" ?>
   </head>
   <body>
     <div class="blur_body">
