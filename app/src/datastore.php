@@ -8,7 +8,6 @@ use PDO;
 use PDOException;
 use WebRuntime\Core\Response;
 use WebRuntime\Core\RouteDisplay;
-use WebRuntime\WebRuntime;
 use WebRuntime\WebRuntimeSession;
 
 final class DataStore {
@@ -26,7 +25,7 @@ final class DataStore {
         }
     }
 
-    public function get_popular_frog(bool $get_one = true): array {
+    public function get_popular_frog(bool $get_one = true): bool|array {
         $stmt = $this->pdo->query("SELECT id, title, description, image_description, image, viewed_count FROM frog_articles ORDER BY viewed_count ASC LIMIT 4");
         if ($get_one) {return $stmt->fetch(PDO::FETCH_ASSOC);}
         else {return $stmt->fetchAll(PDO::FETCH_ASSOC);}
@@ -44,7 +43,12 @@ final class DataStore {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function get_frog_by_id(int $id): array {}
+    public function get_frog_by_id(int $id): array|bool {
+        $stmt = $this->pdo->prepare("SELECT * FROM frog_articles WHERE id = ?");
+        $stmt->execute([(int) $id]);
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 
     public function get_frogs(): array {
         $stmt = $this->pdo->query("SELECT * FROM frog_articles");

@@ -56,7 +56,7 @@ include __DIR__."/../static/templates/page_start.php";
                 <div class="card_content">
                     <h3><?= $frogs[$i]["title"] ?? "Err" ?></h3>
                     <p><?= $frogs[$i]["content"] ?? "Err" ?></p>
-                    <a href="/content/article?exec_action=view&id=<?= $frogs[$i]["id"] ?>" class="button">View</a>
+                    <a href="/content/article?exec_action=view&id=<?= $frogs[$i]["id"] ?? "" ?>" class="button">View</a>
                 </div>
             </div>
         <?php endfor;?>

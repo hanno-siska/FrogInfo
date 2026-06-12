@@ -3,7 +3,7 @@
 @import url("/app/static/reusables.css");
 
 /*== Shared == */
-.home, .articles, .error, .gallery {
+.home, .articles, .error, .gallery, .article {
   padding: 0.75rem;
 }
 
@@ -37,6 +37,18 @@
   grid-template-columns: 0.30fr 1fr;
 }
 
+/*== Article Page ==*/
+.article .article_content {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 0.5fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.article .article_content .card {
+  box-shadow: none;
+}
+
 /*== Media Queries ==*/
 @media (max-width: 550px) {
   .home .featured_cards,
@@ -44,6 +56,11 @@
   .articles .top_frogs {
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .article .article_content {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2 1fr);
   }
 
   .home .frogstistics {

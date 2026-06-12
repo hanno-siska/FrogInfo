@@ -1,7 +1,6 @@
 <?php
 $title = "Error";
 $content = "error";
-$data = $data ?? [];
 include __DIR__."/../static/templates/page_start.php";
 
 // Requires

@@ -10,9 +10,9 @@
 /* Setup */
 html,
 body {
+  min-height: 100%;
   color: var(--text-color);
   font-family: "Inter", sans-serif;
-  height: 100%;
   min-height: 100vh;
   font-size: 16px;
 }
@@ -30,12 +30,14 @@ h2 {
 /* Unified Layout */
 body {
   background-image: url("/app/static/assets/frog_background.webp");
-  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .blur_body {
-  min-height: 100%;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
