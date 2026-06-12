@@ -19,6 +19,7 @@ final class DataStore {
         try {
             $this->pdo = new \PDO("sqlite:".self::DATABASE_LOCATION);
             $this->pdo->exec(file_get_contents(self::DATABASE_SCHEMA));
+            $this->pdo->setAttribute(PDO::ATTR_TIMEOUT, 30);
         } catch(\PDOException $e) {
             echo $e->getMessage();
             die(1);
@@ -26,7 +27,7 @@ final class DataStore {
     }
 
     public function get_popular_frog(bool $get_one = true): bool|array {
-        $stmt = $this->pdo->query("SELECT id, title, description, image_description, image, viewed_count FROM frog_articles ORDER BY viewed_count ASC LIMIT 4");
+        $stmt = $this->pdo->query("SELECT id, title, description, image_description, image, viewed_count FROM frog_articles ORDER BY viewed_count DESC LIMIT 4");
         if ($get_one) {return $stmt->fetch(PDO::FETCH_ASSOC);}
         else {return $stmt->fetchAll(PDO::FETCH_ASSOC);}
     }

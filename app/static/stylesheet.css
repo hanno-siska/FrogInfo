@@ -3,7 +3,7 @@
 @import url("/app/static/reusables.css");
 
 /*== Shared == */
-.home, .articles, .error, .gallery, .article {
+.home, .articles, .error, .gallery, .article, .about {
   padding: 0.75rem;
 }
 
@@ -47,6 +47,13 @@
 
 .article .article_content .card {
   box-shadow: none;
+}
+
+/*== About Page ==*/
+.about .side_by_side {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
 }
 
 /*== Media Queries ==*/

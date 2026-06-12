@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="/app/static/assets/toxic_frog_favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="/app/static/stylesheet.css" />
-    <?= "<title>FrogInfo - ".($title ?? 'NONE')."</title>\n" ?>
+    <title>FrogInfo - <?= $title ?? 'NONE' ?></title>
   </head>
   <body>
     <div class="blur_body">
@@ -17,6 +17,8 @@
             <a href="/" class="link_button">Home</a>
             <a href="/content/articles" class="link_button">Articles</a>
             <a href="/content/gallery" class="link_button">Gallery</a>
+            <a href="/about" class="link_button">About</a>
+            <a href="/contact" class="link_button">Contact</a>
           </nav>
         </header>
         <?= "<div class='".($content ?? "")."'>" ?>

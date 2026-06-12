@@ -9,7 +9,7 @@ include __DIR__."/../../static/templates/page_start.php";
     <section class="article_content">
         <div class="card">
             <img src='<?= $data["result"]["image"] ?? "/app/static/assets/broken_image.png" ?>' alt='<?= $data["result"]["image_description"] ?? "Failed to load image description" ?>' class='card_image'>
-            <a href="<?= $data["result"]["image_source"] ?? $data["result"]["image"] ?>" target="_blank">Image Source</a>
+            <a href="<?= ($data["result"]["image_source"] ?? $data["result"]["image"]) ?? "/error" ?>" target="_blank">Image Source</a>
         </div>
         <div>
             <h2><?= $data["result"]["title"] ?? "Failed to load title" ?></h2>
