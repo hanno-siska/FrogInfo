@@ -16,12 +16,16 @@ final class RouteRegistry {
 
     public function __construct(
         private string $scan_dir,
-        private string $baseurl
+        private string $baseurl,
+        private ?string $baseuri = NULL
     ){}
 
     public function scan(string $carrypath = ""): void {
         $path = PathUtils::build($this->scan_dir, $carrypath);
-        if (!file_exists($path) or !is_dir($path)) {return;}
+        if (!file_exists($path) or !is_dir($path)) {
+            DEBUG::in(DebugLevel::WARNING, "RouteRegistry scan: provided path: '$this->scan_dir', not found!");
+            return;
+        }
 
         foreach (scandir($path) as $pathable) {
             if ($pathable === "." or $pathable === "..") {continue;}
@@ -59,10 +63,16 @@ final class RouteRegistry {
         if (strlen($request->host) === strlen($this->baseurl)) {$prefix = ".";}
         else {$prefix = explode(".", $request->host, 2)[0];}
 
-        if (!key_exists($prefix, $this->views)) {Debug::in(DebugLevel::DEBUG, "RouteRegistry: prefix '$prefix', doesn't exist"); return NULL;}
-        if (!key_exists($request->uri, $this->views[$prefix])) {Debug::in(DebugLevel::DEBUG, "RouteRegistry: request URI '$request->uri', not found in registered paths under prefix '$prefix'"); return NULL;}
+        $uri = $request->uri;
+        if (!is_null($this->baseuri)) {
+            $uri = substr($request->uri, strlen($this->baseuri));
+            if (strlen($uri) == 0) {$uri = "/";}
+        }
 
-        return $this->views[$prefix][$request->uri] ?? NULL;
+        if (!key_exists($prefix, $this->views)) {Debug::in(DebugLevel::DEBUG, "RouteRegistry: prefix '$prefix', doesn't exist"); return NULL;}
+        if (!key_exists($uri, $this->views[$prefix])) {Debug::in(DebugLevel::DEBUG, "RouteRegistry: request URI '$uri', not found in registered paths under prefix '$prefix'"); return NULL;}
+
+        return $this->views[$prefix][$uri] ?? NULL;
     }
 }
 

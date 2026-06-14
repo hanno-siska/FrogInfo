@@ -71,6 +71,10 @@
   margin-top: auto;
 }
 
+.card:has(.button:hover) {
+  transform: translateY(-0.1rem);
+}
+
 .card .image_button {
   border: 0;
   cursor: pointer;

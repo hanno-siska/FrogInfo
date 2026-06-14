@@ -48,10 +48,11 @@ final class WebRuntimeSession {
 }
 
 final class WebRuntime {
-    public const VERSION = "0.1.1";
+    public const VERSION = "0.2.0";
     public function __construct(
         private string $base_url,
         private string $views_dir,
+        private ?string $baseuri = NULL,
         private array $actions = [],
         private bool $debug_mode = false
     ) {}
@@ -64,7 +65,7 @@ final class WebRuntime {
         // Setup
         SessionManagement::start();
 
-        $registry = new RouteRegistry($this->views_dir, $this->base_url);
+        $registry = new RouteRegistry($this->views_dir, $this->base_url, $this->baseuri);
         $route_display = new RouteDisplay();
 
         $actions = new Actions($this->actions);

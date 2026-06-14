@@ -14,7 +14,7 @@ include __DIR__."/../static/templates/page_start.php";
     <img src="/app/static/assets/webruntime_icon.png" alt="WebRuntime, basically a box with a gear on a blue gradient and a nice shadow">
     <div>
         <h3>WebRuntime</h3>
-        <p>Version: 0.1.1</p>
+        <p>Version: 0.2.0</p>
     </div>
     <br>
 </div>

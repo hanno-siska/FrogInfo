@@ -5,7 +5,7 @@
   </span>
 </div>
 
-![version](https://img.shields.io/badge/version-0.1.1-blue)
+![version](https://img.shields.io/badge/version-0.2.0-blue)
 ---
 A lightweight PHP framework for websites, including sessions, actions, file-based routing, and more.
 
