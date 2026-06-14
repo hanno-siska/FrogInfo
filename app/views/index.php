@@ -18,6 +18,7 @@ include __DIR__."/../static/templates/page_start.php";
     <h2>Search</h2>
     <form class="search_form" action="" method="get">
         <input type="hidden" name="exec_action" value="search">
+        <label for="searchbar" class="sr_only">Search frogs</label>
         <input class="textbox" type="search" name="searchbar" placeholder="Try: poison dart frog" value="<?= htmlspecialchars($data["search_query"] ?? "") ?>">
         <input class="button" type="submit" value="Search">
     </form>
@@ -36,7 +37,7 @@ include __DIR__."/../static/templates/page_start.php";
                 <div class="card_content">
                     <h3><?= $frog["title"] ?? "ERR" ?></h3>
                     <p><?= $frog["description"] ?? "ERR" ?></p>
-                    <a href="<?= DIRECTORY ?>/content/article?exec_action=view&id=<?= $frog["id"] ?? "" ?>" class="button">View</a>
+                    <a aria-label="View article about <?= $frog["title"] ?? "ERR" ?>" href="<?= DIRECTORY ?>/content/article?exec_action=view&id=<?= $frog["id"] ?? "" ?>" class="button">View</a>
                 </div>
             </div>
         <?php endforeach; ?>
@@ -57,7 +58,7 @@ include __DIR__."/../static/templates/page_start.php";
                 <div class="card_content">
                     <h3><?= $frogs[$i]["title"] ?? "Err" ?></h3>
                     <p><?= $frogs[$i]["content"] ?? "Err" ?></p>
-                    <a href="<?= DIRECTORY ?>/content/article?exec_action=view&id=<?= $frogs[$i]["id"] ?? "" ?>" class="button">View</a>
+                    <a aria-label="View article about <?= $frog["title"] ?? "ERR" ?>" href="<?= DIRECTORY ?>/content/article?exec_action=view&id=<?= $frogs[$i]["id"] ?? "" ?>" class="button">View</a>
                 </div>
             </div>
         <?php endfor;?>
@@ -77,7 +78,7 @@ include __DIR__."/../static/templates/page_start.php";
             <div class="card_content">
                 <h3><?= $popular_frog["title"] ?? "ERR" ?></h3>
                 <p><?= $popular_frog["description"] ?? "ERR" ?></p>
-                <a href="<?= DIRECTORY ?>/content/article?exec_action=view&id=<?= $popular_frog["id"] ?? "" ?>" class="button">View</a>
+                <a aria-label="View article about <?= $frog["title"] ?? "ERR" ?>" href="<?= DIRECTORY ?>/content/article?exec_action=view&id=<?= $popular_frog["id"] ?? "" ?>" class="button">View</a>
             </div>
         </div>
         <div>
