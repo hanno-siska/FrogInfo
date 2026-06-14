@@ -23,7 +23,7 @@ include __DIR__."/../../static/templates/page_start.php";
             <div class="card_content">
                 <h3><?= $frog["title"] ?? "ERR" ?></h3>
                 <p><?= $frog["description"] ?? "ERR" ?></p>
-                <a href="<?= DIRECTORY ?>/content/article?exec_action=view&id=<?= $frog["id"] ?? "" ?>" class="button">View</a>
+                <a aria-label="View article about <?= $frog["title"] ?? "ERR" ?>" href="<?= DIRECTORY ?>/content/article?exec_action=view&id=<?= $frog["id"] ?? "" ?>" class="button">View</a>
             </div>
         </div>
     <?php endforeach;?>
@@ -38,7 +38,7 @@ include __DIR__."/../../static/templates/page_start.php";
             <div class="card_content">
                 <h3><?= $frog["title"] ?? "ERR" ?></h3>
                 <p><?= $frog["description"] ?? "ERR" ?></p>
-                <a href="<?= DIRECTORY ?>/content/article?exec_action=view&id=<?= $frog["id"] ?? "" ?>" class="button">View</a>
+                <a aria-label="View article about <?= $frog["title"] ?? "ERR" ?>" href="<?= DIRECTORY ?>/content/article?exec_action=view&id=<?= $frog["id"] ?? "" ?>" class="button">View</a>
             </div>
         </div>
     <?php endforeach;?>
