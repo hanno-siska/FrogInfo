@@ -19,7 +19,7 @@ include __DIR__."/../static/templates/page_start.php";
     <form class="search_form" action="" method="get">
         <input type="hidden" name="exec_action" value="search">
         <label for="searchbar" class="sr_only">Search frogs</label>
-        <input class="textbox" type="search" name="searchbar" placeholder="Try: poison dart frog" value="<?= htmlspecialchars($data["search_query"] ?? "") ?>">
+        <input class="textbox" type="search" id="searchbar" name="searchbar" placeholder="Try: poison dart frog" value="<?= htmlspecialchars($data["search_query"] ?? "") ?>">
         <input class="button" type="submit" value="Search">
     </form>
 </section>
