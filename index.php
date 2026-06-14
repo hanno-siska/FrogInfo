@@ -3,7 +3,7 @@
 declare(strict_types=1);
 namespace App;
 
-const DIRECTORY = "";
+const DIRECTORY = "/veebiarendus/froginfo";
 
 // Requires
 require_once __DIR__."/lib/web-runtime/WebRuntime.php";
@@ -16,7 +16,7 @@ use WebRuntime\Core\Request;
 use WebRuntime\WebRuntime;
 
 // Setup
-$webruntime = new WebRuntime("127.0.0.1:8080", __DIR__."/app/views", DIRECTORY, debug_mode: true, actions: [
+$webruntime = new WebRuntime("ita25siska.ita.voco.ee", __DIR__."/app/views", DIRECTORY, debug_mode: true, actions: [
     new Action("search", ActionType::GET, fn(Request $request) => UnifiedActions::handle_search($request)),
     new Action("view", ActionType::GET, fn(Request $request) => UnifiedActions::view_article($request)),
 ]);
