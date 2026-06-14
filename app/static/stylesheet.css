@@ -1,6 +1,6 @@
 /* Imports */
-@import url("/app/static/common.css");
-@import url("/app/static/reusables.css");
+@import url("./common.css");
+@import url("./reusables.css");
 
 /*== Shared == */
 .home, .articles, .error, .gallery, .article, .about, .contact {

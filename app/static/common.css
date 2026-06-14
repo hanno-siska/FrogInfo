@@ -29,7 +29,7 @@ h2 {
 
 /* Unified Layout */
 body {
-  background-image: url("/app/static/assets/frog_background.webp");
+  background-image: url("./assets/frog_background.webp");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -108,7 +108,7 @@ body {
   width: 48px;
   height: 48px;
 
-  background-image: url("/app/static/assets/toxic_frog_spritesheet.png");
+  background-image: url("./assets/toxic_frog_spritesheet.png");
   background-repeat: no-repeat;
 
   image-rendering: pixelated;

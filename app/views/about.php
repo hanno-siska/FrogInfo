@@ -1,4 +1,6 @@
 <?php
+use const App\DIRECTORY;
+
 $title = "About";
 $content = "about";
 include __DIR__."/../static/templates/page_start.php";
@@ -11,7 +13,7 @@ include __DIR__."/../static/templates/page_start.php";
 <hr class="separator">
 <h2>Powered By</h2>
 <div class="side_by_side">
-    <img src="/app/static/assets/webruntime_icon.png" alt="WebRuntime, basically a box with a gear on a blue gradient and a nice shadow">
+    <img src=<?= DIRECTORY."/app/static/assets/webruntime_icon.png"?> alt="WebRuntime, basically a box with a gear on a blue gradient and a nice shadow">
     <div>
         <h3>WebRuntime</h3>
         <p>Version: 0.2.0</p>

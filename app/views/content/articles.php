@@ -1,6 +1,7 @@
 <?php
 require_once "./app/src/datastore.php";
 use App\DataStore;
+use const App\DIRECTORY;
 
 $title = "Articles";
 $content = "articles";
@@ -18,11 +19,11 @@ include __DIR__."/../../static/templates/page_start.php";
 <section class="top_frogs">
     <?php foreach($datastore->get_popular_frog(false) as $frog): ?>
         <div class='card'>
-            <img src='<?= $frog["image"] ?? "/app/static/assets/broken_image.png" ?>' alt='<?= $frog["image_description"] ?? "Failed to load image description" ?>' class='card_image'>
+            <img src='<?= $frog["image"] ?? (DIRECTORY."/app/static/assets/broken_image.png") ?>' alt='<?= $frog["image_description"] ?? "Failed to load image description" ?>' class='card_image'>
             <div class="card_content">
                 <h3><?= $frog["title"] ?? "ERR" ?></h3>
                 <p><?= $frog["description"] ?? "ERR" ?></p>
-                <a href="/content/article?exec_action=view&id=<?= $frog["id"] ?? "" ?>" class="button">View</a>
+                <a href="<?= DIRECTORY ?>/content/article?exec_action=view&id=<?= $frog["id"] ?? "" ?>" class="button">View</a>
             </div>
         </div>
     <?php endforeach;?>
@@ -33,11 +34,11 @@ include __DIR__."/../../static/templates/page_start.php";
 <section class="top_frogs">
     <?php foreach($datastore->get_frogs() as $frog): ?>
         <div class='card'>
-            <img src='<?= $frog["image"] ?? "/app/static/assets/broken_image.png" ?>' alt='<?= $frog["image_description"] ?? "Failed to load image description" ?>' class='card_image'>
+            <img src='<?= $frog["image"] ?? (DIRECTORY."/app/static/assets/broken_image.png") ?>' alt='<?= $frog["image_description"] ?? "Failed to load image description" ?>' class='card_image'>
             <div class="card_content">
                 <h3><?= $frog["title"] ?? "ERR" ?></h3>
                 <p><?= $frog["description"] ?? "ERR" ?></p>
-                <a href="/content/article?exec_action=view&id=<?= $frog["id"] ?? "" ?>" class="button">View</a>
+                <a href="<?= DIRECTORY ?>/content/article?exec_action=view&id=<?= $frog["id"] ?? "" ?>" class="button">View</a>
             </div>
         </div>
     <?php endforeach;?>
