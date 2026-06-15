@@ -57,7 +57,7 @@ include __DIR__."/../static/templates/page_start.php";
                 <img src='<?= $frogs[$i]["image"] ?? (DIRECTORY."/app/static/assets/broken_image.png") ?>' alt='<?= $frogs[$i]["image_description"] ?? "An error occured while getting the image description" ?>' class='card_image'>
                 <div class="card_content">
                     <h3><?= $frogs[$i]["title"] ?? "Err" ?></h3>
-                    <p><?= $frogs[$i]["content"] ?? "Err" ?></p>
+                    <p><?= $frogs[$i]["description"] ?? "Err" ?></p>
                     <a aria-label="View article about <?= $frog["title"] ?? "ERR" ?>" href="<?= DIRECTORY ?>/content/article?exec_action=view&id=<?= $frogs[$i]["id"] ?? "" ?>" class="button">View</a>
                 </div>
             </div>
