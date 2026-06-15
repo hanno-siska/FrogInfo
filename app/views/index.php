@@ -33,7 +33,7 @@ include __DIR__."/../static/templates/page_start.php";
     <section class="featured_cards">
         <?php foreach($data["result"] as $frog): ?>
             <div class='card'>
-                <img src='<?= $frog["image"] ?? (DIRECTORY."/app/static/assets/broken_image.png") ?>' alt='<?= $frog["image_description"] ?? "Failed to load image description" ?>' class='card_image'>
+                <img src='<?= $frog["image"] ?? (DIRECTORY."/app/static/assets/broken_image.png") ?>' alt='<?= $frog["image_description"] ?? "Failed to load image description" ?>' class='card_image' loading="lazy">
                 <div class="card_content">
                     <h3><?= $frog["title"] ?? "ERR" ?></h3>
                     <p><?= $frog["description"] ?? "ERR" ?></p>
@@ -54,7 +54,7 @@ include __DIR__."/../static/templates/page_start.php";
         ?>
         <?php for($i = 0; $i !== 4; $i++): ?>
             <div class='card'>
-                <img src='<?= $frogs[$i]["image"] ?? (DIRECTORY."/app/static/assets/broken_image.png") ?>' alt='<?= $frogs[$i]["image_description"] ?? "An error occured while getting the image description" ?>' class='card_image'>
+                <img src='<?= $frogs[$i]["image"] ?? (DIRECTORY."/app/static/assets/broken_image.png") ?>' alt='<?= $frogs[$i]["image_description"] ?? "An error occured while getting the image description" ?>' class='card_image' loading="lazy">
                 <div class="card_content">
                     <h3><?= $frogs[$i]["title"] ?? "Err" ?></h3>
                     <p><?= $frogs[$i]["description"] ?? "Err" ?></p>
@@ -74,7 +74,7 @@ include __DIR__."/../static/templates/page_start.php";
     <div class="frogstistics">
         <div class='card'>
             <?php $popular_frog = $datastore->get_popular_frog()?>
-            <img src='<?= $popular_frog["image"] ?? (DIRECTORY."/app/static/assets/broken_image.png") ?>' alt='<?= $popular_frog["image_description"] ?? "Failed to load image description" ?>' class='card_image'>
+            <img src='<?= $popular_frog["image"] ?? (DIRECTORY."/app/static/assets/broken_image.png") ?>' alt='<?= $popular_frog["image_description"] ?? "Failed to load image description" ?>' class='card_image' loading="lazy">
             <div class="card_content">
                 <h3><?= $popular_frog["title"] ?? "ERR" ?></h3>
                 <p><?= $popular_frog["description"] ?? "ERR" ?></p>
