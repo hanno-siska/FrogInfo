@@ -10,7 +10,7 @@ include __DIR__."/../../static/templates/page_start.php";
 <?php if(($data["found_result"] ?? false)): ?>
     <section class="article_content">
         <div class="card">
-            <img src='<?= $data["result"]["image"] ?? (DIRECTORY."/app/static/assets/broken_image.png") ?>' alt='<?= $data["result"]["image_description"] ?? "Failed to load image description" ?>' class='card_image'>
+            <img src='<?= $data["result"]["image"] ?? (DIRECTORY."/app/static/assets/broken_image.png") ?>' alt='<?= $data["result"]["image_description"] ?? "Failed to load image description" ?>' class='card_image' loading="lazy">
             <a href="<?= ($data["result"]["image_source"] ?? $data["result"]["image"]) ?? "/error" ?>" target="_blank">Image Source</a>
         </div>
         <div>

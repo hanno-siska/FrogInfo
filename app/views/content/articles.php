@@ -19,7 +19,7 @@ include __DIR__."/../../static/templates/page_start.php";
 <section class="top_frogs">
     <?php foreach($datastore->get_popular_frog(false) as $frog): ?>
         <div class='card'>
-            <img src='<?= $frog["image"] ?? (DIRECTORY."/app/static/assets/broken_image.png") ?>' alt='<?= $frog["image_description"] ?? "Failed to load image description" ?>' class='card_image'>
+            <img src='<?= $frog["image"] ?? (DIRECTORY."/app/static/assets/broken_image.png") ?>' alt='<?= $frog["image_description"] ?? "Failed to load image description" ?>' class='card_image' loading="lazy">
             <div class="card_content">
                 <h3><?= $frog["title"] ?? "ERR" ?></h3>
                 <p><?= $frog["description"] ?? "ERR" ?></p>
@@ -34,7 +34,7 @@ include __DIR__."/../../static/templates/page_start.php";
 <section class="top_frogs">
     <?php foreach($datastore->get_frogs() as $frog): ?>
         <div class='card'>
-            <img src='<?= $frog["image"] ?? (DIRECTORY."/app/static/assets/broken_image.png") ?>' alt='<?= $frog["image_description"] ?? "Failed to load image description" ?>' class='card_image'>
+            <img src='<?= $frog["image"] ?? (DIRECTORY."/app/static/assets/broken_image.png") ?>' alt='<?= $frog["image_description"] ?? "Failed to load image description" ?>' class='card_image' loading="lazy">
             <div class="card_content">
                 <h3><?= $frog["title"] ?? "ERR" ?></h3>
                 <p><?= $frog["description"] ?? "ERR" ?></p>
