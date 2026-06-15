@@ -9,6 +9,8 @@ use WebRuntime\Core\Request;
 use WebRuntime\Services\Debug;
 use WebRuntime\Services\DebugLevel;
 
+use const App\DIRECTORY;
+
 // Classes
 enum ActionType: string {
     case POST = "POST";
@@ -36,7 +38,7 @@ final class Actions {
 
         if (!key_exists("exec_action", $data)) {
             Debug::in(DebugLevel::DEBUG, "Actions: 'exec_action' missing in form/query_string");
-            return new Response(302, "/error", ["msg" => "Error 400, requested action not found"]);
+            return new Response(302, DIRECTORY."/error", ["msg" => "Error 400, requested action not found"]); // TEMPORARY FIXES!!!!
         }
 
         foreach($this->actions as $action) {
@@ -48,7 +50,7 @@ final class Actions {
         }
 
         Debug::in(DebugLevel::DEBUG, "Actions: action '".$data["exec_action"]."', not found");
-        return new Response(302, "/error", ["msg" => "Error 404, requested action not found"]);
+        return new Response(302, DIRECTORY."/error", ["msg" => "Error 404, requested action not found"]);  // TEMPORARY FIXES!!!!
     }
 }
 
