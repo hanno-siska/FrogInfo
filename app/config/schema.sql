@@ -12,5 +12,3 @@ CREATE TABLE IF NOT EXISTS frog_articles (
 
 CREATE INDEX IF NOT EXISTS idx_frog_articles_by_title
 ON frog_articles(title);
-
--- Prefill it with frog data cause i'm not making an admin interface
