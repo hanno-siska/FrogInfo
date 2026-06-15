@@ -27,6 +27,7 @@ final class UnifiedActions {
         $result = $datastore->get_frog_by_id((int) $request->get["id"]);
         if (!$result) {return new Response(200, "./app/views/content/article.php", ["found_result" => false]);}
 
+        $datastore->update_frog_view_count((int) $request->get["id"]);
         return new Response(200, "./app/views/content/article.php", ["found_result" => true, "result" => $result]);
     }
 }

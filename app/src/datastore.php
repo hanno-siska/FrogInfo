@@ -26,6 +26,13 @@ final class DataStore {
         }
     }
 
+    public function update_frog_view_count(int $id): void {
+        try {
+            $stmt = $this->pdo->prepare("UPDATE frog_articles SET viewed_count = viewed_count + 1 WHERE id = ?");
+            $stmt->execute([$id]);
+        } catch(PDOException $e) {return;}
+    }
+
     public function get_popular_frog(bool $get_one = true): bool|array {
         $stmt = $this->pdo->query("SELECT id, title, description, image_description, image, viewed_count FROM frog_articles ORDER BY viewed_count DESC LIMIT 4");
         if ($get_one) {return $stmt->fetch(PDO::FETCH_ASSOC);}
@@ -63,7 +70,7 @@ final class DataStore {
         } catch(PDOException $e) {
             WebRuntimeSession::flash_set("msg", "Error 500, Failed to load images, fatal database failure");
             $disp = new RouteDisplay();
-            $disp->redirect(new Response(302, "/error"));
+            $disp->redirect(new Response(302, DIRECTORY."/error"));
             return [];
         }
     }
