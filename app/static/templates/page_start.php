@@ -25,4 +25,4 @@ use const App\DIRECTORY;
             <a href="<?= DIRECTORY ?>/contact" class="link_button">Contact</a>
           </nav>
         </header>
-        <?= "<div class='".($content ?? "")."'>" ?>
+        <?= "<main class='".($content ?? "")."'>" ?>
