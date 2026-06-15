@@ -7,6 +7,7 @@ use const App\DIRECTORY;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A site about frogs, articles, and frog info." />
     <link rel="shortcut icon" href="<?= DIRECTORY ?>/app/static/assets/toxic_frog_favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="<?= DIRECTORY ?>/app/static/stylesheet.css" />
     <title>FrogInfo - <?= $title ?? 'NONE' ?></title>
