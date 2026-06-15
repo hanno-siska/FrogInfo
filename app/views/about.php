@@ -7,7 +7,7 @@ include __DIR__."/../static/templates/page_start.php";
 ?>
 
 <h2>About FrogInfo</h2>
-<p>A small curated frog information site built under a 4-day deadline.</p>
+<p>A small curated frog information site built under a 5-day deadline.</p>
 <br>
 <p>Yup I coded an average of 8h+ a day to finish this in time, since I procrastinated a bit too much and built smth else :)</p>
 <hr class="separator">

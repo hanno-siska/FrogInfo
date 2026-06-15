@@ -84,7 +84,7 @@ include __DIR__."/../static/templates/page_start.php";
         <div>
             <p>Total frogs in the system: <?= $datastore->get_frog_count() ?></p>
             <p>The top frog has been viewed: <?= $popular_frog["viewed_count"] ?? 0 ?> times</p>
-            <p>Last updated: 12/06/2026</p> 
+            <p>Last updated: 15/06/2026</p> 
         </div>
     </div>
 </section>
