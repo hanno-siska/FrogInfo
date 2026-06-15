@@ -74,3 +74,17 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+@media (max-width: 500px) {
+  .home .frogstistics {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2 1fr);
+  }
+
+  .home .featured_cards,
+  .gallery .gallery_images,
+  .articles .top_frogs {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4 1fr);
+  }
+}

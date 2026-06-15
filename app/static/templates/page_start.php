@@ -16,14 +16,22 @@ use const App\DIRECTORY;
     <div class="blur_body">
       <div class="content_body">
         <header class="navbar">
-          <div class="navbar_sprite"></div>
-          <h1>FrogInfo</h1>
+          <div class="header_combo">
+            <div class="navbar_sprite_clip">
+              <div class="navbar_sprite"></div>
+            </div>
+            <h1>FrogInfo</h1>
+          </div>
           <nav>
-            <a href="<?= DIRECTORY ?>/" class="link_button">Home</a>
-            <a href="<?= DIRECTORY ?>/content/articles" class="link_button">Articles</a>
-            <a href="<?= DIRECTORY ?>/content/gallery" class="link_button">Gallery</a>
-            <a href="<?= DIRECTORY ?>/about" class="link_button">About</a>
-            <a href="<?= DIRECTORY ?>/contact" class="link_button">Contact</a>
+            <div>
+              <a href="<?= DIRECTORY ?>/" class="link_button">Home</a>
+              <a href="<?= DIRECTORY ?>/content/articles" class="link_button">Articles</a>
+            </div>
+            <div>
+              <a href="<?= DIRECTORY ?>/content/gallery" class="link_button">Gallery</a>
+              <a href="<?= DIRECTORY ?>/about" class="link_button">About</a>
+              <a href="<?= DIRECTORY ?>/contact" class="link_button">Contact</a>
+            </div>
           </nav>
         </header>
         <?= "<main class='".($content ?? "")."'>" ?>
